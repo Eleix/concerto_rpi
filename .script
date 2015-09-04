@@ -1,7 +1,8 @@
 #!/bin/bash
-#    Checks if Midori, XSettings and Unclutter are running and starts them if they aren't
+#    Checks if Chromium, XSettings and Unclutter are running and starts them if they aren't
 #
-#    Copyright (C) 2013  Andrew Fryer (flamewave000)
+#    Copyright (C) 2013  Andrew Fryer (flamewave000), Adapted by Francis Booth (tranquilitycal)
+ConcertoServerIP="https://docs.google.com/presentation/d/1mJm16VS-j0mKEBDO05lVYaKGi360-ycrRIA76F2QqJk/pub?start=true&loop=true&delayms=3000"
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -16,24 +17,26 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+#Adapted Francis Booth 9/3/15 
+#Change Notice
+#Replaced midori with chromium to provide a fluid refresh less noticeable than midori's default refresh.
+
 LOG="./digitalsignage.log"
 empty=""
 
 /bin/date > $LOG
 
-#This checks to see if Midori is running
-result=`/bin/ps -A | /bin/grep -o -E "midori"`
+#This checks to see if Chromium is running
+result=`/bin/ps -A | /bin/grep -o -E "chromium"`
 if [ "$result" == "$empty" ]; then
-    #if not running (the return is empty) then start Midori and send it to Concerto
-    /bin/echo Midori: Not running. >> $LOG
-    #Obtain computer's MAC address
-    mac=`/sbin/ifconfig | /bin/grep -o -E "[a-zA-Z0-9]{2}(:[a-zA-Z0-9]{2}){5}" | sed 's/://g'`
-    /bin/echo -n Midori: starting browser @ http://$ConcertoServerIP/screen?mac=$mac ... >> $LOG
-    #Start Midori in fullscreen mode
-    /usr/bin/midori -e Fullscreen -a http://$ConcertoServerIP/screen?mac=$mac &>> $LOG &
+    #if not running (the return is empty) then start Chromium and send it to Concerto
+    /bin/echo Chromium: Not running. >> $LOG
+    /bin/echo -n Chromium: starting browser @ $ConcertoServer ... >> $LOG
+    #Start chromium in fullscreen kiosk mode
+    /usr/bin/chromium --noerrdialogs --kiosk $ConcertoServerIP --incognito &>> $LOG &
     /bin/echo Done. >> $LOG
 else
-    /bin/echo Midori: Running. >> $LOG
+    /bin/echo Chromium: Running. >> $LOG
 fi
 
 #Check if XSettings is running
