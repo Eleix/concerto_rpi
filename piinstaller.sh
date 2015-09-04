@@ -9,7 +9,7 @@ fi
 
 #Checks for and updates the system before installing the necessary tools.
 apt-get update && apt-get upgrade -y
-apt-get install git chromium vim xdotool -y
+apt-get install git chromium-browser vim xdotool -y
 
 #moves to the pi user's home directory and clones the concerto install script
 cd ~pi/
@@ -37,7 +37,7 @@ echo "Concerto Install Complete"
 echo "Finishing Up"
 chown -R pi:pi /home/pi/*
 #Links nss library for Chromium
-#ln -s /usr/lib/arm-linux-gnueabihf/nss/ /usr/lib/nss
+ln -s /usr/lib/arm-linux-gnueabihf/nss/ /usr/lib/nss
 /bin/echo '0 0 * * * apt-get update && apt-get upgrade -y > /var/log/updater/midnight-update_$(date +\%m\%d\%Y).log &> /dev/null' >> ./.tmp
 /usr/bin/crontab -u root ./.tmp
 #grace period for crontab to be updated with the midnight update script then remove the file since its no longer needed.
