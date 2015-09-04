@@ -36,6 +36,9 @@ do
     esac
 done
 
+#Creates a lock file used as a hookable point for other scripts to see when this one finishes.
+touch ~pi/concerto.lock
+
 #This command will install the XSettings and the Unclutter programs
 /bin/echo "INSTALLING REQUIRED PROGRAMS"
 sudo /usr/bin/apt-get -y --force-yes install x11-xserver-utils unclutter
