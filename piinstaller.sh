@@ -9,7 +9,7 @@ fi
 
 #Checks for and updates the system before installing the necessary tools.
 apt-get update && apt-get upgrade -y
-apt-get install git chromium-browser vim xdotool -y
+apt-get install git screen chromium-browser vim xdotool -y
 
 #moves to the pi user's home directory and clones the concerto install script
 cd ~pi/
