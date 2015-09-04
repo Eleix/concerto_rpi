@@ -141,7 +141,7 @@ done
 /bin/echo "SETTING UP CONCERTO CRON JOB"
 cp ./.crontab ./.tmp
 /bin/echo "* * * * * export DISPLAY=:0 && /bin/bash $HOME/digitalsignage.sh" >> ./.tmp
-/bin/echo "0,5,10,15,20,25,30,35,40,45,50,55,59 * * * * export DISPLAY=:0 && xdotool search "Chromium" windowactivate --sync key F5" >> ./.tmp
+/bin/echo "*/5 * * * * export DISPLAY=:0 && xdotool search "Chromium" windowactivate --sync key F5" >> ./.tmp
 if [ $shoutcast ]; then
 	/bin/echo "@reboot   /bin/bash $HOME/shoutcast-radio.sh &> $HOME/shoutcast-radio.log" >> ./.tmp
 fi
