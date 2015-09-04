@@ -1,7 +1,9 @@
                          ┌────────────────────────────┐
                          │  Concerto for Raspberry Pi │
                          │      By: Andrew Fryer      │
-                         │       March 13, 2013       │
+                         │       March 13, 2013       |
+                         │  Updated by: Francis Booth |
+                         |      September 3, 2015     |
 ╔════════════════════════╧════════════════════════════╧══════════════════════════╗
 ║ 1. Introduction ────────────────────────────────────────────────────── Line 28 ║
 ║                                                                                ║
@@ -16,7 +18,7 @@
 ║   b. Manual Installation                                                       ║
 ║         I. Required Software                                                   ║
 ║        II. Installing the Script                                               ║
-║       III. Setting up the Cron Job                                             ║
+║       III. Setting up the Cron Job    *UPDATED                                 ║
 ║        IV. Setting up AutoLogin                                                ║
 ║                                                                                ║
 ║ 4. Changing the Concerto Settings ─────────────────────────────────── Line 175 ║
@@ -29,10 +31,10 @@
 ║                                                                                ║
 ║    This document explains how to properly set up a Raspberry Pi mini computer  ║
 ║    to act as a Concerto client machine. The basic goal of this is to have a    ║
-║    device that, upon starting, will automatically start a Midori browser in    ║
+║    device that, upon starting, will automatically start a Chromium browser in  ║
 ║    fullscreen and send it to the Concerto web page containing the device's     ║
 ║    specific contents. We also wish to hide the mouse cursor and prevent the    ║
-║    device from going to sleep due to inactivity. Also, if the Midori browser   ║
+║    device from going to sleep due to inactivity. Also, if the Chromium browser ║
 ║    were to crash or close, we want to automatically restart the browser as     ║
 ║    soon as possible.                                                           ║
 ╠════════════════════════════════════════════════════════════════════════════════╣
@@ -42,7 +44,7 @@
 ║        - Raspberry Pi Model B and a 5V-1A MicroUSB Power Supply                ║
 ║        - Standard SD card 4GB or more (class 6 or better)                      ║
 ╨        - Raspbery Pi's Wheezy Linux Distro OS                                  ╨
-http://downloads.raspberrypi.org/download.php?file=/images/raspbian/2012-12-16-wheezy-raspbian/2012-12-16-wheezy-raspbian.zip
+https://www.raspberrypi.org/downloads/raspbian/
          - Win32 Imager (use secure mirror link to download)
 http://www.softpedia.com/get/CD-DVD-Tools/Data-CD-DVD-Burning/Win32-Disk-Imager.shtml
 ╥                                                                                ╥
@@ -90,7 +92,7 @@ http://www.softpedia.com/get/CD-DVD-Tools/Data-CD-DVD-Burning/Win32-Disk-Imager.
 ╟────────────────┤bash InstallConcertoForPi.sh├──────────────────────────────────╢
 ║           - Follow the on-screen instructions and you're done! (your mouse     ║
 ║             should disappear when ever it's not moving. The Raspberry Pi       ║
-║             should not turn off while inactive and the Midori browser          ║
+║             should not turn off while inactive and the Chromium browser        ║
 ║             should begin to automatically start. Music should also play if you ║
 ║             chose to configure your Pi for a shout cast playback)              ║
 ║                                                                                ║
@@ -113,9 +115,9 @@ http://www.softpedia.com/get/CD-DVD-Tools/Data-CD-DVD-Burning/Win32-Disk-Imager.
 ║             │sudo /etc/init.d/mpd stop              │                          ║
 ║             │sudo chmod -x /etc/init.d/mpd          │                          ║
 ║      II. Installing the Scripts                                                ║
-║          For this you will need the .script and .shoutcast files. This script  ║
-║          is what automates opening the Midori browser to the Concerto web page ║
-║          and making sure the computer does not fall asleep.                    ║
+║         For this you will need the .script and .shoutcast files. This script   ║
+║         is what automates opening the Chromium browser to the Concerto web page║
+║         and making sure the computer does not fall asleep.                     ║
 ║           (Concerto Script)                                                    ║
 ║           - First copy the .script file to the home folder. If you're not sure ║
 ║             where that is, enter the following into a terminal: echo $HOME     ║
