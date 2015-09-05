@@ -1,8 +1,7 @@
-#!/bin/bash
-#    Checks if Chromium, XSettings and Unclutter are running and starts them if they aren't
+#checks if Midori, XSettings and Unclutter are running and starts them if they aren't
 #
-#    Copyright (C) 2013  Andrew Fryer (flamewave000), Adapted by Francis Booth (tranquilitycal)
-ConcertoServerIP="https://docs.google.com/presentation/d/1mJm16VS-j0mKEBDO05lVYaKGi360-ycrRIA76F2QqJk/pub?start=true&loop=true&delayms=3000"
+#    Copyright (C) 2013  Andrew Fryer (flamewave000)
+ConcertoServerIP="https://docs.google.com/presentation/d/1swmKDcVz4dl5DytS5s5hzNQqDlklFe8WaivyvLRYIy8/pub?start=true&loop=true&delayms=8000"
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
