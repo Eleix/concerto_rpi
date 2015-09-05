@@ -58,8 +58,8 @@ sleep 2
 rm -rf ./.tmp
 
 #Moves the refresh script into the home folder and adds an executable bit so that the cronjob can execute it properly.
-mv ~pi/concerto_pi/refresh.sh ~pi/refresh.sh
-chmod +x ~pi/refresh.sh 
+cp /home/pi/concerto_pi/refresh.sh /home/pi/refresh.sh
+sudo chmod +x ~pi/refresh.sh
 
 #Script is finished, System is rebooted at the end of the script.
 echo "Finished Setup"
