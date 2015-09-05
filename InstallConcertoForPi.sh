@@ -45,32 +45,6 @@ sudo /usr/bin/apt-get -y --force-yes install x11-xserver-utils unclutter
 
 #This copies the Concerto script to the home directory
 /bin/echo "COPYING CRONJOB SCRIPT TO $HOME"
-#get the Concerto server web address, wether it be an IP or URL
-gettingip=true
-while $gettingip;
-do
-    /bin/echo "Please enter the Concerto Servers URL/IP address"
-    /bin/echo -n "(www.example.com/concerto OR 123.4.5.67):"
-    read ip
-    while true;
-    do
-        /bin/echo "You entered: $ip"
-        /bin/echo -n "Is this correct [y/n]?"
-        read x
-        case $x in
-          y|Y)
-            gettingip=false
-            break
-          ;;
-          n|N)
-            break
-          ;;
-          *)
-            /bin/echo "Invalid command '$x'"
-          ;;
-        esac
-    done
-done
 /bin/echo
 while true;
 do
