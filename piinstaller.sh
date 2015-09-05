@@ -7,6 +7,18 @@ if [ "$EUID" -ne 0 ]
 	exit
 fi
 
+# Checks to see if this script is being run inside of the concerto_rpi git clone.
+if [ "$pwd" == /home/pi/concerto_rpi ]
+	then echo "This script should not be run inside of the git clone. Please move this script back one directory and run again."
+	exit
+fi
+
+# Checks to see if this script is being run inside of the concerto_rpi git clone.
+if [ "$PWD" == "/home/pi/concerto_rpi" ]
+        then echo "This script should not be run inside of the git clone. Please move this script back one directory and run again."
+        exit
+fi
+
 #Checks for and updates the system before installing the necessary tools.
 apt-get update && apt-get upgrade -y
 apt-get install git screen chromium-browser vim xdotool -y
