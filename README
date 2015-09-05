@@ -19,7 +19,6 @@
 ║         I. Required Software                                                   ║
 ║        II. Installing the Script                                               ║
 ║       III. Setting up the Cron Job    *UPDATED                                 ║
-║        IV. Setting up AutoLogin                                                ║
 ║                                                                                ║
 ║ 4. Changing the Concerto Settings ─────────────────────────────────── Line 175 ║
 ║   a. Concerto Server Address                                                   ║
@@ -155,23 +154,6 @@ http://www.softpedia.com/get/CD-DVD-Tools/Data-CD-DVD-Burning/Win32-Disk-Imager.
 ║             show instructions on how to do so it is most likely the 'vim'      ║
 ║             editor. To exit hit [Esc] and then enter ':x' and hit enter. That  ║
 ║             should save and close the document.                                ║
-║      IV. Setting up AutoLogin                                                  ║
-║           - First, open the .bashrc file that is located in /home/pi. This is  ║
-║             a hidden file so you may need to right click and select the        ║
-║             "Show Hidden" option.                                              ║
-║           - Once it is open in a text editor, scroll to the very bottom and    ║
-║             add the following three lines of code and then save the file.      ║
-║                │if [ "`/bin/ps -A | /bin/grep -o -E "startx"`" == "" ]; then│  ║
-╟────────────────┤    startx                                                  ├──╢
-║                │fi                                                          │  ║
-║           - That code insures that when you auto login, the desktop will       ║
-║             automatically load as well.                                        ║
-║           - Next we need to make our pi login automatically. First navigate to ║
-║             the /sbin folder and open the file "inittab" in a text editor.     ║
-║           - Once open, search through the file until you find the following:   ║
-╟────────────────┤1:2345:respawn:/sbin/getty --noclear 38400 tty1├───────────────╢
-╨           - You must replace the previous line you just found with this one:   ╨
-1:2345:respawn:/sbin/getty --noclear 38400 tty1/1:2345:respawn:/bin/login -f pi tty1</dev/tty1 >/dev/tty1 2>&1
 ╥                                                                                ╥
 ╠════════════════════════════════════════════════════════════════════════════════╣
 ║ 4. Changing the Concerto Settings                                              ║
