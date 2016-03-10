@@ -21,7 +21,7 @@ fi
 
 #Checks for and updates the system before installing the necessary tools.
 apt-get update && apt-get upgrade -y
-apt-get install git screen chromium-browser ntpdate vim xdotool -y
+apt-get install git screen chromium-browser ntpdate vim xdotool unattended-upgrades -y
 
 #moves to the pi user's home directory and clones the concerto install script
 cd ~pi/
@@ -50,10 +50,9 @@ echo "Finishing Up"
 chown -R pi:pi /home/pi/*
 #Links nss library for Chromium
 ln -s /usr/lib/arm-linux-gnueabihf/nss/ /usr/lib/nss
-/bin/echo '0 0 * * * apt-get update && apt-get upgrade -y > /var/log/updater/midnight-update_$(date +\%m\%d\%Y).log &> /dev/null' >> ./.tmp
-/bin/echo '@reboot service ntp stop && ntpdate pool.ntp.org'
+/bin/echo '@reboot service ntp stop && ntpdate pool.ntp.org' >> ./.tmp
 /usr/bin/crontab -u root ./.tmp
-#grace period for crontab to be updated with the midnight update script then remove the file since its no longer needed.
+#grace period for crontab to be updated with the update script then remove the file since its no longer needed.
 sleep 2
 rm -rf ./.tmp
 
