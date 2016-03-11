@@ -198,7 +198,7 @@ do
 done
 /usr/bin/crontab -u $USER ./.tmp
 /bin/rm ./.tmp
-mv 50unattended-updates /etc/apt/apt.conf.d/
+mv $HOME/concerto_rpi/50unattended-updates /etc/apt/apt.conf.d/
 
 #Now we can remove the lock file we created to let other scripts know we are done.
 rm -rf ~pi/concerto.lock
