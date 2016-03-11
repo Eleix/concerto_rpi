@@ -203,5 +203,5 @@ mv 50unattended-updates /etc/apt/apt.conf.d/
 #Now we can remove the lock file we created to let other scripts know we are done.
 rm -rf ~pi/concerto.lock
 
-#And we're done :)
+#finished
 echo "DONE."
