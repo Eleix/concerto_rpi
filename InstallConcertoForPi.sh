@@ -192,7 +192,7 @@ do
         break
       ;;
       *)
-        /bin/echo "Invalid command '$x'"
+        /bin/echo "Invalid command '$x'
       ;;
     esac
 done
