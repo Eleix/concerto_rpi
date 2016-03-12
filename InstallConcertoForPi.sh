@@ -43,6 +43,33 @@ touch ~pi/concerto.lock
 /bin/echo "INSTALLING REQUIRED PROGRAMS"
 sudo /usr/bin/apt-get -y --force-yes install x11-xserver-utils unclutter
 
+#get the display web address, it can be an IP or URL		
+gettingip=true		
+while $gettingip;		
+do		
+    /bin/echo "Please enter the URL you wish to use."		
+    /bin/echo -n "(www.example.com/concerto OR 123.4.5.67):"		
+    read ip		
+    while true;		
+    do		
+        /bin/echo "You entered: $ip"		
+        /bin/echo -n "Is this correct [y/n]?"		
+        read x		
+        case $x in		
+          y|Y)		
+            gettingip=false		
+            break		
+          ;;		
+          n|N)		
+            break		
+          ;;		
+          *)		
+            /bin/echo "Invalid command '$x'"		
+          ;;		
+        esac		
+    done		
+done
+
 #This copies the Concerto script to the home directory
 /bin/echo "COPYING CRONJOB SCRIPT TO $HOME"
 /bin/echo
