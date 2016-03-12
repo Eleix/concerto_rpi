@@ -2,7 +2,8 @@
 #checks if Chromium, XSettings and Unclutter are running and starts them if they aren't
 #
 #    Copyright (C) 2013  Andrew Fryer (flamewave000)
-ConcertoServerIP="https://docs.google.com/presentation/d/1swmKDcVz4dl5DytS5s5hzNQqDlklFe8WaivyvLRYIy8/pub?start=true&loop=true&delayms=8000"
+#           Edited and updated by Francis Booth (tranquilitycal) 
+#                       Last modified 3/11/2016
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -27,7 +28,7 @@ empty=""
 /bin/date > $LOG
 
 #This checks to see if Chromium is running
-result=`/bin/ps -A | /bin/grep -o -E "chromium-browser"`
+result=`/bin/ps -A | /bin/grep -o -E "chromium-browse"`
 if [ "$result" == "$empty" ]; then
     #if not running (the return is empty) then start Chromium and send it to Concerto
     /bin/echo Chromium: Not running. >> $LOG
