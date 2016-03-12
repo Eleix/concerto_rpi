@@ -1,3 +1,4 @@
+#!/bin/bash
 #checks if Chromium, XSettings and Unclutter are running and starts them if they aren't
 #
 #    Copyright (C) 2013  Andrew Fryer (flamewave000)
