@@ -230,5 +230,28 @@ mv $HOME/concerto_rpi/50unattended-updates /etc/apt/apt.conf.d/
 #Now we can remove the lock file we created to let other scripts know we are done.
 rm -rf ~pi/concerto.lock
 
+    /bin/echo "It is recommended that autologin is setup via the 'raspi-config', but for backwards"
+    /bin/echo "compatibility, do you wish to add autologin to the user bash?"
+    /bin/echo -n "[y/n]? "
+    read x
+    case $x in
+      y|Y)
+		/bin/echo "SETTING UP AUTO-LOGIN"
+		/bin/echo 'if [ "`/bin/ps -A | /bin/grep -o -E "startx"`" == "" ]; then' >> ~/.bashrc
+		/bin/echo "    startx" >> ~/.bashrc
+		/bin/echo "fi" >> ~/.bashrc
+		sudo /usr/bin/perl -pi -e 's/1:2345:respawn:\/sbin\/getty --noclear 38400 tty1/1:2345:respawn:\/bin\/login -f pi tty1<\/dev\/tty1 >\/dev\/tty1 2>\&1/g' /etc/inittab
+		break
+      ;;
+      n|N)
+        /bin/echo OK.
+        break
+      ;;
+      *)
+        /bin/echo "Invalid command '$x'"
+      ;;
+    esac
+done
+
 #finished
 echo "DONE."
